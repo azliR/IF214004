@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StudentService {
-    List<Student> getAllStudents();
+  List<Student> getAllStudents();
 
-    Optional<Student> findById(Long id);
+  Optional<Student> findById(Long id);
 
-    Optional<Student> findByEmail(String email);
+  Optional<Student> findByEmail(String email);
 
-    Student save(Student std);
+  Student save(Student std);
 
-    void deleteById(Long id);
+  void deleteById(Long id);
 }

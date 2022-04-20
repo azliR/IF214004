@@ -12,35 +12,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @AllArgsConstructor
 public class StudentWebController {
-    private StudentService studentService;
+  private StudentService studentService;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("student", studentService.getAllStudents());
-        return "index";
-    }
+  @GetMapping("/")
+  public String index(Model model) {
+    model.addAttribute("student", studentService.getAllStudents());
+    return "index";
+  }
 
-    @GetMapping(value = "/create")
-    public String create(Model model) {
-        model.addAttribute("student", new Student());
-        return "form_student";
-    }
+  @GetMapping(value = "/create")
+  public String create(Model model) {
+    model.addAttribute("student", new Student());
+    return "form_student";
+  }
 
-    @PostMapping(value = "/create")
-    public String tambahStudent(Model model, Student student) {
-        model.addAttribute("student", studentService.save(student));
-        return "redirect:/";
-    }
+  @PostMapping(value = "/create")
+  public String tambahStudent(Model model, Student student) {
+    model.addAttribute("student", studentService.save(student));
+    return "redirect:/";
+  }
 
-    @GetMapping(value = "/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", studentService.findById(id));
-        return "form_student";
-    }
+  @GetMapping(value = "/edit/{id}")
+  public String editForm(@PathVariable Long id, Model model) {
+    model.addAttribute("student", studentService.findById(id));
+    return "form_student";
+  }
 
-    @GetMapping(value = "/hapus/{id}")
-    public String hapusStudent(@PathVariable Long id) {
-        studentService.deleteById(id);
-        return "redirect:/";
-    }
+  @GetMapping(value = "/hapus/{id}")
+  public String hapusStudent(@PathVariable Long id) {
+    studentService.deleteById(id);
+    return "redirect:/";
+  }
 }
