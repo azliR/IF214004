@@ -1,0 +1,3 @@
+[submodule "spring-boot_forgot-password"]
+	path = spring-boot_forgot-password
+	url = https://github.com/azliR/spring-boot_forgot-password.git
